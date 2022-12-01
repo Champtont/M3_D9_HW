@@ -15,9 +15,9 @@ const MyFavorites = () => {
       <Container>
         <h1 className="text-center mb-2">Saved for Later</h1>
         {favorites.length === 0 && (
-          <Row>
+          <Row className="text-center">
             <Col>
-              <h2>
+              <h2 className="display-4">
                 No Favorites Yet <GiShrug />{" "}
               </h2>
             </Col>
