@@ -3,6 +3,7 @@ import { GiShrug } from "react-icons/gi";
 import { TfiTrash } from "react-icons/tfi";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const MyFavorites = () => {
   const favorites = useSelector((state) => state.favorites.companies);
@@ -32,7 +33,11 @@ const MyFavorites = () => {
                 key={favorite._id}
                 className="d-flex justify-content-between"
               >
-                <p>{favorite.company_name}</p>
+                <p>
+                  <Link to={`/${favorite.company_name}`}>
+                    {favorite.company_name}
+                  </Link>
+                </p>
                 <p>{favorite.title}</p>
                 <Button
                   variant="danger"
