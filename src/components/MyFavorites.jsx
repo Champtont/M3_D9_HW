@@ -1,12 +1,14 @@
 import { Button, Col, Container, ListGroup, Row } from "react-bootstrap";
 import { GiShrug } from "react-icons/gi";
 import { TfiTrash } from "react-icons/tfi";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 const MyFavorites = () => {
   const favorites = useSelector((state) => state.favorites.companies);
   console.log(favorites);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -22,7 +24,7 @@ const MyFavorites = () => {
           </Row>
         )}
       </Container>
-      <Container>
+      <Container className="d-flex flex-column justify-content-center">
         <ListGroup>
           {favorites.map((favorite) => {
             return (
@@ -47,6 +49,14 @@ const MyFavorites = () => {
             );
           })}
         </ListGroup>
+        <Button
+          className="mt-2"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Home
+        </Button>
       </Container>
     </>
   );
